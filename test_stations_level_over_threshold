@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Feb 25 19:16:53 2018
+
+@author: Sehaj
+"""
+import pytest
+from floodsystem.flood import stations_level_over_threshold
+from floodsystem.stationdata import build_station_list
+from floodsystem.stationdata import update_water_levels
+
+def test_stations_level_over_threshold():
+    stations = build_station_list()
+    assert stations
+    update_water_levels(stations)
+    assert stations_level_over_threshold(stations, 0.8)
